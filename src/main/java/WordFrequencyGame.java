@@ -2,7 +2,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.StringJoiner;
 import java.util.stream.Collectors;
 
 public class WordFrequencyGame {
@@ -11,11 +10,7 @@ public class WordFrequencyGame {
 
     public String getResult(String sentence) throws CalculateErrorException {
         try {
-            List<WordFrequency> wordFrequencyList = this.calculateWordFrequency(sentence);
-
-            wordFrequencyList.sort((w1, w2) -> w2.getCount() - w1.getCount());
-
-            return this.getWordFrequencyResult(wordFrequencyList);
+            return this.getWordFrequencyResult(this.calculateWordFrequency(sentence));
         } catch (Exception exception) {
             throw new CalculateErrorException();
         }
