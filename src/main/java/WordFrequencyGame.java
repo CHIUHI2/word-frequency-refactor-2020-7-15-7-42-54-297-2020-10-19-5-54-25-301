@@ -18,8 +18,12 @@ public class WordFrequencyGame {
 
     private String getWordFrequencyResult(List<WordFrequency> wordFrequencyList) {
         return wordFrequencyList.stream()
-                .map(wordFrequency -> String.format("%s %d", wordFrequency.getWord(), wordFrequency.getCount()))
+                .map(this::getWordFrequencyResultLine)
                 .collect(Collectors.joining(LINE_BREAK));
+    }
+
+    private String getWordFrequencyResultLine(WordFrequency wordFrequency) {
+        return String.format("%s %d", wordFrequency.getWord(), wordFrequency.getCount());
     }
 
     private List<WordFrequency> getSortedWordFrequency(String sentence) {
