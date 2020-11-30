@@ -10,7 +10,7 @@ public class WordFrequencyGame {
 
     public String getResult(String sentence) throws CalculateErrorException {
         try {
-            return this.getWordFrequencyResult(this.calculateWordFrequency(sentence));
+            return this.getWordFrequencyResult(this.getSortedWordFrequency(sentence));
         } catch (Exception exception) {
             throw new CalculateErrorException();
         }
@@ -22,7 +22,7 @@ public class WordFrequencyGame {
                 .collect(Collectors.joining(LINE_BREAK));
     }
 
-    private List<WordFrequency> calculateWordFrequency(String sentence) {
+    private List<WordFrequency> getSortedWordFrequency(String sentence) {
         List<String> words = Arrays.asList(sentence.split(REGEX_SPLIT_DELIMITER));
 
         return words.stream()
