@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.StringJoiner;
 
 public class WordFrequencyGame {
+    private static final String LINE_BREAK = "\n";
+    private static final String REGEX_SPLIT_DELIMITER = "\\s+";
+
     public String getResult(String sentence) throws CalculateErrorException {
         try {
             List<WordFrequency> wordFrequencyList = this.calculateWordFrequency(sentence);
@@ -18,7 +21,7 @@ public class WordFrequencyGame {
     }
 
     private String getWordFrequencyResult(List<WordFrequency> wordFrequencyList) {
-        StringJoiner joiner = new StringJoiner("\n");
+        StringJoiner joiner = new StringJoiner(LINE_BREAK);
         for (WordFrequency w : wordFrequencyList) {
             String s = w.getWord() + " " + w.getCount();
             joiner.add(s);
@@ -29,7 +32,7 @@ public class WordFrequencyGame {
 
     private List<WordFrequency> calculateWordFrequency(String sentence) {
         //split the input string with 1 to n pieces of spaces
-        String[] arr = sentence.split("\\s+");
+        String[] arr = sentence.split(REGEX_SPLIT_DELIMITER);
 
         List<WordFrequency> wordFrequencyList = new ArrayList<>();
         for (String s : arr) {
