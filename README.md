@@ -1,6 +1,7 @@
 # Refactoring Steps
 ## Step 1 - Test Protection
   1. check if has test, if not, create test case first
+      - implement test for testing the try catch function as I have code refactoring on it
   2. run test and ensure all test passed
 ## Step 2 - Read Code
   1. understand the logic and the purposes of the coding
