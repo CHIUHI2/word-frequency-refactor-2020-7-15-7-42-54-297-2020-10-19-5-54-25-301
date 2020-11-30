@@ -1,10 +1,13 @@
 package com.ooclbootcamp.game.wordfrequency;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.Mockito.when;
 
 import com.ooclbootcamp.game.wordfrequency.exception.CalculateErrorException;
 import com.ooclbootcamp.game.wordfrequency.WordFrequencyGame;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 public class WordFrequencyGameTest {
     private WordFrequencyGame wordFrequencyGame = new WordFrequencyGame();
@@ -79,5 +82,20 @@ public class WordFrequencyGameTest {
 
         //then
         assertEquals("is 2\nthe 1", result);
+    }
+
+    @Test
+    void should_throw_calculate_error_exception_when_get_result_given_a_method_inside_get_result_throw_error() throws CalculateErrorException {
+        //given
+        WordFrequencyGame wordFrequencyGame = Mockito.mock(WordFrequencyGame.class);
+        when(wordFrequencyGame.getSortedWordFrequency(Mockito.anyString())).thenThrow(NullPointerException.class);
+        when(wordFrequencyGame.getResult(Mockito.anyString())).thenCallRealMethod();
+
+        //then
+        assertThrows(CalculateErrorException.class, () -> {
+                    //when
+                    wordFrequencyGame.getResult(Mockito.anyString());
+                }
+        );
     }
 }

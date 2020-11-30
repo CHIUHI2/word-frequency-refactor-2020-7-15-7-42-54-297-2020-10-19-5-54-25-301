@@ -30,7 +30,7 @@ public class WordFrequencyGame {
         return String.format("%s %d", wordFrequency.getWord(), wordFrequency.getCount());
     }
 
-    private List<WordFrequency> getSortedWordFrequency(String sentence) {
+    public List<WordFrequency> getSortedWordFrequency(String sentence) {
         List<String> words = Arrays.asList(sentence.split(REGEX_SPLIT_DELIMITER));
 
         return words.stream()
