@@ -6,40 +6,36 @@ import java.util.StringJoiner;
 
 public class WordFrequencyGame {
     public String getResult(String sentence) {
-        if (sentence.split("\\s+").length == 1) {
-            return sentence + " 1";
-        } else {
-            try {
-                //split the input string with 1 to n pieces of spaces
-                String[] arr = sentence.split("\\s+");
+        try {
+            //split the input string with 1 to n pieces of spaces
+            String[] arr = sentence.split("\\s+");
 
-                List<WordFrequency> wordFrequencyList = new ArrayList<>();
-                for (String s : arr) {
-                    WordFrequency wordFrequency = new WordFrequency(s, 1);
-                    wordFrequencyList.add(wordFrequency);
-                }
-
-                //get the map for the next step of sizing the same word
-                Map<String, List<WordFrequency>> map = getListMap(wordFrequencyList);
-
-                List<WordFrequency> list = new ArrayList<>();
-                for (Map.Entry<String, List<WordFrequency>> entry : map.entrySet()) {
-                    WordFrequency wordFrequency = new WordFrequency(entry.getKey(), entry.getValue().size());
-                    list.add(wordFrequency);
-                }
-                wordFrequencyList = list;
-
-                wordFrequencyList.sort((w1, w2) -> w2.getCount() - w1.getCount());
-
-                StringJoiner joiner = new StringJoiner("\n");
-                for (WordFrequency w : wordFrequencyList) {
-                    String s = w.getWord() + " " + w.getCount();
-                    joiner.add(s);
-                }
-                return joiner.toString();
-            } catch (Exception e) {
-                return "Calculate Error";
+            List<WordFrequency> wordFrequencyList = new ArrayList<>();
+            for (String s : arr) {
+                WordFrequency wordFrequency = new WordFrequency(s, 1);
+                wordFrequencyList.add(wordFrequency);
             }
+
+            //get the map for the next step of sizing the same word
+            Map<String, List<WordFrequency>> map = getListMap(wordFrequencyList);
+
+            List<WordFrequency> list = new ArrayList<>();
+            for (Map.Entry<String, List<WordFrequency>> entry : map.entrySet()) {
+                WordFrequency wordFrequency = new WordFrequency(entry.getKey(), entry.getValue().size());
+                list.add(wordFrequency);
+            }
+            wordFrequencyList = list;
+
+            wordFrequencyList.sort((w1, w2) -> w2.getCount() - w1.getCount());
+
+            StringJoiner joiner = new StringJoiner("\n");
+            for (WordFrequency w : wordFrequencyList) {
+                String s = w.getWord() + " " + w.getCount();
+                joiner.add(s);
+            }
+            return joiner.toString();
+        } catch (Exception e) {
+            return "Calculate Error";
         }
     }
 
