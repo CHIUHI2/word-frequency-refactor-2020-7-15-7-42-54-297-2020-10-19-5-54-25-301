@@ -8,22 +8,22 @@
 ## Step 3 - Refactor Techniques
   1. figure out which techniques have to be used
 ## Step 4 - Code Refactoring with Baby Step
-  - refactoring with below actions one by one following : action -> test if passed all tests, if not, bug fix -> commit
-    1. remove useless import inside WordFrequencyGame
-    2. remove useless empty line and do formatting for WordFrequencyGame
-    3. rename input variable 'input' of WordFrequencyGame getResult to 'sentence'
-    4. rename class Input to WordFrequency and rename variable, method inside the class
-    5. remove useless empty line and do formatting for WordFrequency
-    6. make variable inside WordFrequency final
-    7. remove duplicated logic inide WordFrequencyGame getResult
-    8. replace error code with CalculateErrorException inide WordFrequencyGame getResult
-    9. extract calculateWordFrequency and getWordFrequencyResult from WordFrequencyGame getResult
-    10. add variable for magic word inside WordFrequencyGame
-    11. implement cleaner code for WordFrequenctGame calculateWordFrequency
-    12. implement cleaner code for WordFrequenctGame getWordFrequencyResult
-    13. remove useless code in WordFrequenctGame getResult
-    14. rename calculateWordFrequency to getSortedWordFrequency for including sorting
-    15. extract getWordFrequencyResultLine from getWordFrequencyResult
-    16. add package for better structure
-    17. rename test case
-    18. refactor test case with given when then format
+### - refactoring one by one following : action -> test if passed all tests, if not, bug fix -> commit
+  1. remove useless import inside WordFrequencyGame
+  2. remove useless empty line and do formatting for WordFrequencyGame
+  3. rename input variable 'input' of WordFrequencyGame getResult to 'sentence'
+  4. rename class Input to WordFrequency and rename variable, method inside the class
+  5. remove useless empty line and do formatting for WordFrequency
+  6. make variable inside WordFrequency final
+  7. remove duplicated logic inide WordFrequencyGame getResult
+  8. replace error code with CalculateErrorException inide WordFrequencyGame getResult
+  9. extract calculateWordFrequency and getWordFrequencyResult from WordFrequencyGame getResult
+  10. add variable for magic word inside WordFrequencyGame
+  11. implement cleaner code for WordFrequenctGame calculateWordFrequency
+  12. implement cleaner code for WordFrequenctGame getWordFrequencyResult
+  13. remove useless code in WordFrequenctGame getResult
+  14. rename calculateWordFrequency to getSortedWordFrequency for including sorting
+  15. extract getWordFrequencyResultLine from getWordFrequencyResult
+  16. add package for better structure
+  17. rename test case
+  18. refactor test case with given when then format
