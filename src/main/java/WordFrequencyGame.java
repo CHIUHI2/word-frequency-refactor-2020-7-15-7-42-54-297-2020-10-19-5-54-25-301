@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.StringJoiner;
 
 public class WordFrequencyGame {
-    public String getResult(String sentence) {
+    public String getResult(String sentence) throws CalculateErrorException {
         try {
             //split the input string with 1 to n pieces of spaces
             String[] arr = sentence.split("\\s+");
@@ -34,8 +34,8 @@ public class WordFrequencyGame {
                 joiner.add(s);
             }
             return joiner.toString();
-        } catch (Exception e) {
-            return "Calculate Error";
+        } catch (Exception exception) {
+            throw new CalculateErrorException();
         }
     }
 
