@@ -1,3 +1,7 @@
+package com.ooclbootcamp.game.wordfrequency;
+
+import com.ooclbootcamp.game.wordfrequency.exception.CalculateErrorException;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;

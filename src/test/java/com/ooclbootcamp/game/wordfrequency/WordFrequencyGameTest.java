@@ -1,5 +1,9 @@
+package com.ooclbootcamp.game.wordfrequency;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import com.ooclbootcamp.game.wordfrequency.exception.CalculateErrorException;
+import com.ooclbootcamp.game.wordfrequency.WordFrequencyGame;
 import org.junit.jupiter.api.Test;
 
 public class WordFrequencyGameTest {

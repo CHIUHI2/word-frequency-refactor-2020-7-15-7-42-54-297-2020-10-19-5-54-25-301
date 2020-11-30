@@ -1,3 +1,5 @@
+package com.ooclbootcamp.game.wordfrequency;
+
 public class WordFrequency {
     private final String word;
     private final int count;

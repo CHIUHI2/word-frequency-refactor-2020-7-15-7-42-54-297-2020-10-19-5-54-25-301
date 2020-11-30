@@ -1,5 +1,7 @@
+package com.ooclbootcamp.game.wordfrequency.exception;
+
 public class CalculateErrorException extends Exception {
-    CalculateErrorException() {
+    public CalculateErrorException() {
         super("Calculate Error");
     }
 }
