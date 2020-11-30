@@ -22,13 +22,9 @@ public class WordFrequencyGame {
     }
 
     private String getWordFrequencyResult(List<WordFrequency> wordFrequencyList) {
-        StringJoiner joiner = new StringJoiner(LINE_BREAK);
-        for (WordFrequency w : wordFrequencyList) {
-            String s = w.getWord() + " " + w.getCount();
-            joiner.add(s);
-        }
-
-        return joiner.toString();
+        return wordFrequencyList.stream()
+                .map(wordFrequency -> String.format("%s %d", wordFrequency.getWord(), wordFrequency.getCount()))
+                .collect(Collectors.joining(LINE_BREAK));
     }
 
     private List<WordFrequency> calculateWordFrequency(String sentence) {
