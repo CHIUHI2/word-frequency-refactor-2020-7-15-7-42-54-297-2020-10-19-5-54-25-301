@@ -25,6 +25,7 @@
   13. remove useless code in WordFrequenctGame getResult
   14. rename calculateWordFrequency to getSortedWordFrequency for including sorting
   15. extract getWordFrequencyResultLine from getWordFrequencyResult
-  16. add package for better structure
-  17. rename test case
-  18. refactor test case with given when then format
+  16. extract getWords from WordFrequencyGame getSortedWordFrequency
+  17. add package for better structure
+  18. rename test case
+  19. refactor test case with given when then format
