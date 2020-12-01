@@ -84,16 +84,15 @@ public class WordFrequencyGameTest {
     }
 
     @Test
-    void should_throw_calculate_error_exception_when_get_result_given_a_method_inside_get_result_throw_error() throws CalculateErrorException {
+    void should_throw_calculate_error_exception_when_get_result_given_null() throws CalculateErrorException {
         //given
         WordFrequencyGame wordFrequencyGame = Mockito.mock(WordFrequencyGame.class);
-        when(wordFrequencyGame.sortWordFrequency(Mockito.anyList())).thenThrow(NullPointerException.class);
-        when(wordFrequencyGame.getResult(Mockito.anyString())).thenCallRealMethod();
+        when(wordFrequencyGame.getResult(null)).thenCallRealMethod();
 
         //then
         assertThrows(CalculateErrorException.class, () -> {
                     //when
-                    wordFrequencyGame.getResult(Mockito.anyString());
+                    wordFrequencyGame.getResult(null);
                 }
         );
     }
