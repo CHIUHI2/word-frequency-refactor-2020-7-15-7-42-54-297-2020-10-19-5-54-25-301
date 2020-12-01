@@ -14,23 +14,23 @@ public class WordFrequencyGame {
 
     public String getResult(String sentence) throws CalculateErrorException {
         try {
-            return this.getWordFrequencyResult(this.getSortedWordFrequency(this.getWords(sentence)));
+            return this.generateWordFrequencyResult(this.sortWordFrequency(this.splitSentence(sentence)));
         } catch (Exception exception) {
             throw new CalculateErrorException();
         }
     }
 
-    private String getWordFrequencyResult(List<WordFrequency> wordFrequencyList) {
+    private String generateWordFrequencyResult(List<WordFrequency> wordFrequencyList) {
         return wordFrequencyList.stream()
-                .map(this::getWordFrequencyResultLine)
+                .map(this::formatWordFrequencyResultLine)
                 .collect(Collectors.joining(LINE_BREAK));
     }
 
-    private String getWordFrequencyResultLine(WordFrequency wordFrequency) {
+    private String formatWordFrequencyResultLine(WordFrequency wordFrequency) {
         return String.format("%s %d", wordFrequency.getWord(), wordFrequency.getCount());
     }
 
-    public List<WordFrequency> getSortedWordFrequency(List<String> words) {
+    public List<WordFrequency> sortWordFrequency(List<String> words) {
         return words.stream()
                 .distinct()
                 .map(word -> new WordFrequency(word, Collections.frequency(words, word)))
@@ -38,7 +38,7 @@ public class WordFrequencyGame {
                 .collect(Collectors.toList());
     }
 
-    private List<String> getWords(String sentence) {
+    private List<String> splitSentence(String sentence) {
         return  Arrays.asList(sentence.split(REGEX_SPLIT_DELIMITER));
     }
 }
