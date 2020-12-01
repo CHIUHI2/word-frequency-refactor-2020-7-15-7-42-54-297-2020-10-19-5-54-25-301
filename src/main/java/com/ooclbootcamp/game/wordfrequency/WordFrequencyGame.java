@@ -14,7 +14,7 @@ public class WordFrequencyGame {
 
     public String getResult(String sentence) throws CalculateErrorException {
         try {
-            return this.getWordFrequencyResult(this.getSortedWordFrequency(sentence));
+            return this.getWordFrequencyResult(this.getSortedWordFrequency(this.getWords(sentence)));
         } catch (Exception exception) {
             throw new CalculateErrorException();
         }
@@ -30,13 +30,15 @@ public class WordFrequencyGame {
         return String.format("%s %d", wordFrequency.getWord(), wordFrequency.getCount());
     }
 
-    public List<WordFrequency> getSortedWordFrequency(String sentence) {
-        List<String> words = Arrays.asList(sentence.split(REGEX_SPLIT_DELIMITER));
-
+    public List<WordFrequency> getSortedWordFrequency(List<String> words) {
         return words.stream()
                 .distinct()
                 .map(word -> new WordFrequency(word, Collections.frequency(words, word)))
                 .sorted(Comparator.comparing(WordFrequency::getCount).reversed())
                 .collect(Collectors.toList());
+    }
+
+    private List<String> getWords(String sentence) {
+        return  Arrays.asList(sentence.split(REGEX_SPLIT_DELIMITER));
     }
 }
